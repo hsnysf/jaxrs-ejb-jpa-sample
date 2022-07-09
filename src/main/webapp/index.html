@@ -829,17 +829,19 @@
 							
 						}).catch(function(error){
 							
+							$scope.loading = false;
+							
 							$scope.alert = {class:"alert-danger", message:error};
 						});
 						
-						//$http.post("./getManagerCount", $scope.managerSearch).then(function(result){
+						$http.post("./getManagerCount", $scope.managerSearch).then(function(result){
 							
-						//	$scope.managerSearch = result.data;
+							$scope.managerSearch = result.data;
 							
-						//}).catch(function(error){
+						}).catch(function(error){
 							
-						//	$scope.alert = {class:"alert-danger", message:error};
-						//});
+							$scope.alert = {class:"alert-danger", message:error};
+						});
 					}
 					
 					$scope.searchManagers(true);
