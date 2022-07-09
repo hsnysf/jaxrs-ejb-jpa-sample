@@ -880,6 +880,8 @@
 					
 					$scope.toAddManager = function(){
 						
+						$scope.submitted = false;
+						
 						$scope.alert = {class:"alert-info", message:"Please enter Manager Details"};
 						
 						$scope.manager = new Object();
@@ -921,6 +923,8 @@
 					}
 					
 					$scope.toUpdateManager = function(manager){
+						
+						$scope.submitted = false;
 						
 						$http.post("./getManager", manager).then(function(result){
 							
@@ -998,8 +1002,6 @@
 							$scope.searchManagers(false);
 							
 						}).catch(function(error){
-							
-							console.log(error);
 							
 							$scope.alert = {class:"alert-danger", message:error.data};
 						});
