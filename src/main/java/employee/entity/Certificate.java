@@ -16,7 +16,7 @@ import javax.persistence.Transient;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.johnzon.mapper.JohnzonConverter;
-import org.apache.johnzon.mapper.JohnzonIgnoreNested;
+import org.apache.johnzon.mapper.JohnzonIgnore;
 
 @Entity
 @Table(name="certificate")
@@ -30,7 +30,7 @@ public class Certificate implements Serializable {
 	private Integer id;
 	@JoinColumn(name="cert_employee_id")
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JohnzonIgnoreNested
+	@JohnzonIgnore
 	private Employee employee;			
 	@Column(name="cert_title")
 	private String title;
