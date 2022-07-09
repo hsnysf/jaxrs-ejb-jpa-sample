@@ -71,10 +71,6 @@ public class Manager extends Employee {
 		this.creationDate = creationDate;
 	}
 
-	public String getCreationDateView() {
-		return creationDate != null ? creationDate.toString() : "";
-	}
-	
 	public void setCreationUser(String creationUser) {
 		this.creationUser = creationUser;
 	}
@@ -82,16 +78,13 @@ public class Manager extends Employee {
 	public String getCreationUser() {
 		return creationUser;
 	}
+	
 	public void setUpdateDate(Timestamp updateDate) {
 		this.updateDate = updateDate;
 	}
 
 	public Timestamp getUpdateDate() {
 		return updateDate;
-	}
-	
-	public String getUpdateDateView() {
-		return updateDate != null ? updateDate.toString() : "";
 	}
 	
 	public void setUpdateUser(String updateUser) {

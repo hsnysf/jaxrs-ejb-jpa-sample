@@ -152,16 +152,13 @@ public class Employee implements Serializable {
 	public Boolean getActive() {
 		return active;
 	}
+	
 	public void setCreationDate(Timestamp creationDate) {
 		this.creationDate = creationDate;
 	}
 
 	public Timestamp getCreationDate() {
 		return creationDate;
-	}
-	
-	public String getCreationDateView() {
-		return creationDate != null ? creationDate.toString() : "";
 	}
 	
 	public void setCreationUser(String creationUser) {
@@ -177,10 +174,6 @@ public class Employee implements Serializable {
 
 	public Timestamp getUpdateDate() {
 		return updateDate;
-	}
-	
-	public String getUpdateDateView() {
-		return updateDate != null ? updateDate.toString() : "";
 	}
 	
 	public void setUpdateUser(String updateUser) {

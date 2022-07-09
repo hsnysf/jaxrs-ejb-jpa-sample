@@ -111,9 +111,6 @@ public class Address implements Serializable {
 	public Timestamp getCreationDate() {
 		return creationDate;
 	}
-	public String getCreationDateView() {
-		return creationDate != null ? creationDate.toString() : "";
-	}
 	
 	public void setCreationUser(String creationUser) {
 		this.creationUser = creationUser;
@@ -129,10 +126,7 @@ public class Address implements Serializable {
 	public Timestamp getUpdateDate() {
 		return updateDate;
 	}
-	
-	public String getUpdateDateView() {
-		return updateDate != null ? updateDate.toString() : "";
-	}
+
 	public void setUpdateUser(String updateUser) {
 		this.updateUser = updateUser;
 	}
