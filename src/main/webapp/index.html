@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+		<title>Manager Management</title>
+		
+		<meta http-equiv="Expires" content="-1">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache">
+
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width = device-width, initial-scale = 1, user-scalable = no">
+
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+		
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+		<link href="common.css" rel="stylesheet">
+		
+	    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/800px-Java_programming_language_logo.svg.png">
+		<link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/800px-Java_programming_language_logo.svg.png">
+		<link rel="apple-touch-startup-image" href="https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/800px-Java_programming_language_logo.svg.png">
+		<link rel="apple-touch-icon-precomposed" href="https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/800px-Java_programming_language_logo.svg.png">
+	
+	</head>
+	<body>
+		<div class="container-fluid" ng-app="application" ng-controller="controller">
+		
+			<h4 class="pb-2 mt-4 mb-3 border-bottom">
+				Manager Management
+			</h4>
+			
+			<div id="alert" ng-class="alert.class" ng-bind="alert.message" class="alert fw-bold text-center" role="alert">
+			</div>
+			
+			<div class="card">
+				<div class="card-header fw-bold">
+					Manager Search
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-sm-12 col-md-6 col-lg-4">
+							<div class="mb-3">
+								<label for="employeeIdSearch" class="form-label">Id</label>
+								<input id="employeeIdSearch" ng-model="managerSearch.id" type="tel" class="form-control is-valid" placeholder="Id" maxlength="10" autocomplete="off">
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-4">
+							<div class="mb-3">
+								<label for="employeeCprSearch" class="form-label">Cpr</label>
+								<input id="employeeCprSearch" ng-model="managerSearch.cpr" type="tel" class="form-control is-valid cpr" placeholder="Cpr" maxlength="9" autocomplete="off">
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-4">
+							<div class="mb-3">
+								<label for="employeeNameSearch" class="form-label">Name</label>
+								<input id="employeeNameSearch" ng-model="managerSearch.name" type="text" class="form-control is-valid name" placeholder="Name" maxlength="255" autocomplete="off">
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-4">
+							<div class="mb-3">
+								<label for="employeeAgeSearch" class="form-label">Age</label>
+								<input id="employeeAgeSearch" ng-model="managerSearch.age" type="tel" class="form-control is-valid age" placeholder="Age" maxlength="2" autocomplete="off">
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-4">
+							<div class="mb-3">
+								<label for="employeeEmailSearch" class="form-label">Email</label>
+								<input id="employeeEmailSearch" ng-model="managerSearch.email" type="email" class="form-control is-valid email" placeholder="Email" maxlength="255" autocomplete="off">
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-4">
+							<div class="mb-3">
+								<label for="employeeGenderSearch" class="form-label">Gender</label>
+								<input id="employeeGenderSearch" ng-model="managerSearch.gender" type="text" class="form-control is-valid" placeholder="Gender" maxlength="1" autocomplete="off">
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-4">
+							<div class="mb-3">
+								<label for="employeeMobileSearch" class="form-label">Mobile</label>
+								<input id="employeeMobileSearch" ng-model="managerSearch.mobile" type="tel" class="form-control is-valid mobile" placeholder="Mobile" maxlength="8" autocomplete="off">
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-4">
+							<div class="mb-3">
+								<label for="employeeSalarySearch" class="form-label">Salary</label>
+								<input id="employeeSalarySearch" ng-model="managerSearch.salary" type="number" class="form-control is-valid" placeholder="Salary" maxlength="17" autocomplete="off">
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-4">
+							<div class="mb-3">
+								<label for="addressIdSearch" class="form-label">Address Id</label>
+								<input id="addressIdSearch" ng-model="managerSearch.address.id" type="tel" class="form-control is-valid" placeholder="Address Id" maxlength="10" autocomplete="off">
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-4">
+							<div class="mb-3">
+								<label for="addressBuildingSearch" class="form-label">Address Building</label>
+								<input id="addressBuildingSearch" ng-model="managerSearch.address.building" type="tel" class="form-control is-valid" placeholder="Address Building" maxlength="10" autocomplete="off">
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-4">
+							<div class="mb-3">
+								<label for="addressRoadSearch" class="form-label">Address Road</label>
+								<input id="addressRoadSearch" ng-model="managerSearch.address.road" type="tel" class="form-control is-valid" placeholder="Address Road" maxlength="10" autocomplete="off">
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-4">
+							<div class="mb-3">
+								<label for="addressBlockSearch" class="form-label">Address Block</label>
+								<input id="addressBlockSearch" ng-model="managerSearch.address.block" type="tel" class="form-control is-valid" placeholder="Address Block" maxlength="10" autocomplete="off">
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-4">
+							<div class="mb-3">
+								<label for="addressCitySearch" class="form-label">Address City</label>
+								<input id="addressCitySearch" ng-model="managerSearch.address.city" type="text" class="form-control is-valid" placeholder="Address City" maxlength="100" autocomplete="off">
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-4">
+							<div class="mb-3">
+								<label for="addressActiveSearch" class="form-label">Address Active</label>
+								<select id="addressActiveSearch" ng-model="managerSearch.address.active" class="form-control is-valid" placeholder="Address Active" autocomplete="off">
+									<option ng-value="">Address Active</option>
+									<option ng-value="true">Yes</option>
+									<option ng-value="false">No</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-4">
+							<div class="mb-3">
+								<label for="employeeActiveSearch" class="form-label">Active</label>
+								<select id="employeeActiveSearch" ng-model="managerSearch.active" class="form-control is-valid" placeholder="Active" autocomplete="off">
+									<option ng-value="">Active</option>
+									<option ng-value="true">Yes</option>
+									<option ng-value="false">No</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-4">
+							<div class="mb-3">
+								<label for="managerDegreeSearch" class="form-label">Degree</label>
+								<input id="managerDegreeSearch" ng-model="managerSearch.degree" type="tel" class="form-control is-valid" placeholder="Degree" maxlength="10" autocomplete="off">
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-4">
+							<div class="mb-3">
+								<label for="managerAllowanceSearch" class="form-label">Allowance</label>
+								<input id="managerAllowanceSearch" ng-model="managerSearch.allowance" type="number" class="form-control is-valid" placeholder="Allowance" maxlength="10" autocomplete="off">
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-4">
+							<div class="mb-3">
+								<label for="managerActiveSearch" class="form-label">Active</label>
+								<select id="managerActiveSearch" ng-model="managerSearch.active" class="form-control is-valid" placeholder="Active" autocomplete="off">
+									<option ng-value="">Active</option>
+									<option ng-value="true">Yes</option>
+									<option ng-value="false">No</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card-footer text-center">
+					<button type="button" class="btn btn-dark" ng-click="searchManagers(true)">Search</button>
+				</div>
+			</div>
+			
+			<div class="card mt-4">
+				<div class="card-header fw-bold">
+					Manager List
+				</div>
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>
+									#
+								</th>
+								<th>
+									Id
+								</th>
+								<th>
+									Cpr
+								</th>
+								<th>
+									Name
+								</th>
+								<th>
+									Age
+								</th>
+								<th>
+									Email
+								</th>
+								<th>
+									Gender
+								</th>
+								<th>
+									Mobile
+								</th>
+								<th>
+									Salary
+								</th>
+								<th>
+									Address Id
+								</th>
+								<th>
+									Address Building
+								</th>
+								<th>
+									Address Road
+								</th>
+								<th>
+									Address Block
+								</th>
+								<th>
+									Address City
+								</th>
+								<th>
+									Degree
+								</th>
+								<th>
+									Allowance
+								</th>
+								<th>
+									Active
+								</th>
+								<th>
+									Creation Date
+								</th>
+								<th>
+									Creation User
+								</th>
+								<th>
+									Update Date
+								</th>
+								<th>
+									Update User
+								</th>
+								<th>
+									<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#managerModal" ng-click="toAddManager()">Add</button>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="manager in managers" ng-hide="loading">
+								<td>
+									{{$index + 1}}
+								</td>
+								<td>
+									{{manager.id}}
+								</td>
+								<td>
+									{{manager.cpr}}
+								</td>
+								<td>
+									{{manager.name}}
+								</td>
+								<td>
+									{{manager.age}}
+								</td>
+								<td>
+									{{manager.email}}
+								</td>
+								<td>
+									{{manager.gender}}
+								</td>
+								<td>
+									{{manager.mobile}}
+								</td>
+								<td>
+									{{manager.salary}}
+								</td>
+								<td>
+									{{manager.address.id}}
+								</td>
+								<td>
+									{{manager.address.building}}
+								</td>
+								<td>
+									{{manager.address.road}}
+								</td>
+								<td>
+									{{manager.address.block}}
+								</td>
+								<td>
+									{{manager.address.city}}
+								</td>
+								<td>
+									{{manager.degree}}
+								</td>
+								<td>
+									{{manager.allowance}}
+								</td>
+								<td>
+									{{manager.active ? 'Yes' : 'No'}}
+								</td>
+								<td>
+									{{manager.creationDate}}
+								</td>
+								<td>
+									{{manager.creationUser}}
+								</td>
+								<td>
+									{{manager.updateDate}}
+								</td>
+								<td>
+									{{manager.updateUser}}
+								</td>
+								<th>
+									<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#viewModal" ng-click="selectManager(manager)">View</button>
+									<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#managerModal" ng-click="toUpdateManager(manager)">Edit</button>
+									<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#activateModal" ng-if="!manager.active" ng-click="selectManager(manager)">Activate</button>
+									<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#activateModal" ng-if="manager.active" ng-click="selectManager(manager)">Deactivate</button>
+								</th>
+							</tr>
+							<tr ng-show="loading">
+								<td align="center" colspan="100">
+									<div class="spinner-border" role="status">
+										<span class="sr-only"></span>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="card-footer" ng-if="managerSearch.totalRows != 0">
+					<div class="row">
+						<div class="col-3 text-start">
+							<button type="button" class="btn btn-dark" ng-if="managerSearch.pageNo != 1" ng-click="first()">First</button>
+							<button type="button" class="btn btn-dark" ng-if="managerSearch.pageNo != 1" ng-click="previous()">Previous</button>
+						</div>
+						<div class="col-2 text-center">
+							<label class="fw-bold">
+								Rows :
+								<select ng-model="managerSearch.rowCount" class="form-control d-inline w-auto" ng-change="first()">
+									<option ng-value="5">5</option>
+									<option ng-value="10">10</option>
+									<option ng-value="15">15</option>
+									<option ng-value="20">20</option>
+								</select>
+							</label>
+						</div>
+						<div class="col-2 text-center">
+							<label class="fw-bold pt-1">
+								Total : {{managerSearch.totalRows}}
+							</label>
+						</div>
+						<div class="col-2 text-center">
+							<label class="fw-bold pt-1">
+								Page {{managerSearch.pageNo}} of {{managerSearch.pageCount}}
+							</label>
+						</div>
+						<div class="col-3 text-end">
+							<button type="button" class="btn btn-dark" ng-if="managerSearch.pageNo != managerSearch.pageCount" ng-click="next()">Next</button>
+							<button type="button" class="btn btn-dark" ng-if="managerSearch.pageNo != managerSearch.pageCount" ng-click="last()">Last</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<br>
+			<div class="modal fade" id="managerModal">
+				<div class="modal-dialog modal-xl">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">{{manager.id == null ? 'Add' : 'Update'}} Manager</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<div id="alert" ng-class="alert.class" ng-bind="alert.message" class="alert fw-bold text-center" role="alert">
+							</div>
+							<div class="card mt-4">
+								<div class="card-header fw-bold">
+									Manager Details
+								</div>
+								<div class="card-body">
+									<div class="row">
+										<div class="col-sm-12 col-md-6 col-lg-4">
+											<div class="mb-3">
+												<label for="employeeCpr" class="form-label">Cpr</label>
+												<input id="employeeCpr" ng-model="manager.cpr" type="tel" class="form-control is-valid cpr" placeholder="Cpr" maxlength="9" autocomplete="off">
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-4">
+											<div class="mb-3">
+												<label for="employeeName" class="form-label">Name</label>
+												<input id="employeeName" ng-model="manager.name" type="text" class="form-control is-valid name" placeholder="Name" maxlength="255" autocomplete="off">
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-4">
+											<div class="mb-3">
+												<label for="employeeAge" class="form-label">Age</label>
+												<input id="employeeAge" ng-model="manager.age" type="tel" class="form-control is-valid age" placeholder="Age" maxlength="2" autocomplete="off">
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-4">
+											<div class="mb-3">
+												<label for="employeeEmail" class="form-label">Email</label>
+												<input id="employeeEmail" ng-model="manager.email" type="email" class="form-control is-valid email" placeholder="Email" maxlength="255" autocomplete="off">
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-4">
+											<div class="mb-3">
+												<label for="employeeGender" class="form-label">Gender</label>
+												<input id="employeeGender" ng-model="manager.gender" type="text" class="form-control is-valid" placeholder="Gender" maxlength="1" autocomplete="off">
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-4">
+											<div class="mb-3">
+												<label for="employeeMobile" class="form-label">Mobile</label>
+												<input id="employeeMobile" ng-model="manager.mobile" type="tel" class="form-control is-valid mobile" placeholder="Mobile" maxlength="8" autocomplete="off">
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-4">
+											<div class="mb-3">
+												<label for="employeeSalary" class="form-label">Salary</label>
+												<input id="employeeSalary" ng-model="manager.salary" type="number" class="form-control is-valid" placeholder="Salary" maxlength="17" autocomplete="off">
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-4">
+											<div class="mb-3">
+												<label for="addressBuilding" class="form-label">Address Building</label>
+												<input id="addressBuilding" ng-model="manager.address.building" type="tel" class="form-control is-valid" placeholder="Address Building" maxlength="10" autocomplete="off">
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-4">
+											<div class="mb-3">
+												<label for="addressRoad" class="form-label">Address Road</label>
+												<input id="addressRoad" ng-model="manager.address.road" type="tel" class="form-control is-valid" placeholder="Address Road" maxlength="10" autocomplete="off">
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-4">
+											<div class="mb-3">
+												<label for="addressBlock" class="form-label">Address Block</label>
+												<input id="addressBlock" ng-model="manager.address.block" type="tel" class="form-control is-valid" placeholder="Address Block" maxlength="10" autocomplete="off">
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-4">
+											<div class="mb-3">
+												<label for="addressCity" class="form-label">Address City</label>
+												<input id="addressCity" ng-model="manager.address.city" type="text" class="form-control is-valid" placeholder="Address City" maxlength="100" autocomplete="off">
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-4">
+											<div class="mb-3">
+												<label for="managerDegree" class="form-label">Degree</label>
+												<input id="managerDegree" ng-model="manager.degree" type="tel" class="form-control is-valid" placeholder="Degree" maxlength="10" autocomplete="off">
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-4">
+											<div class="mb-3">
+												<label for="managerAllowance" class="form-label">Allowance</label>
+												<input id="managerAllowance" ng-model="manager.allowance" type="number" class="form-control is-valid" placeholder="Allowance" maxlength="10" autocomplete="off">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card mt-4">
+								<div class="card-header fw-bold">
+									Certificate List
+								</div>
+								<div class="table-responsive">
+									<table class="table table-striped">
+										<thead>
+											<tr>
+												<th>
+													#
+												</th>
+												<th>
+													Title
+												</th>
+												<th>
+													Year
+												</th>
+												<th>
+													<button type="button" class="btn btn-dark" ng-click="addCertificate(manager.certificates.length + 1)">Add</button>
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-repeat="certificate in manager.certificates">
+												<td>
+													{{$index + 1}}
+												</td>
+												<td>
+													<div class="mb-3">
+														<input id="title" ng-model="certificate.title" type="text" class="form-control is-valid" placeholder="Title" maxlength="200" autocomplete="off">
+													</div>
+												</td>
+												<td>
+													<div class="mb-3">
+														<input id="year" ng-model="certificate.year" type="tel" class="form-control is-valid" placeholder="Year" maxlength="10" autocomplete="off">
+													</div>
+												</td>
+												<th>
+													<button type="button" class="btn btn-dark" ng-click="addCertificate($index)">+</button>
+													<button type="button" class="btn btn-dark" ng-click="deleteCertificate($index)">-</button>
+												</th>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-dark" ng-if="manager.id == null" ng-click="addManager()">Add</button>
+							<button type="button" class="btn btn-dark" ng-if="manager.id != null" ng-click="updateManager()">Update</button>
+							<button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="viewModal">
+				<div class="modal-dialog modal-xl">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">View Manager</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<div class="card mt-4">
+								<div class="card-header fw-bold">
+									Manager Details
+								</div>
+								<div class="table-responsive">
+									<table class="table table-striped">
+										<tbody>
+											<tr>
+												<th>
+													Id
+												</th>
+												<td>
+													{{manager.id}}
+												</td>
+											</tr>
+											<tr>
+												<th>
+													Cpr
+												</th>
+												<td>
+													{{manager.cpr}}
+												</td>
+											</tr>
+											<tr>
+												<th>
+													Name
+												</th>
+												<td>
+													{{manager.name}}
+												</td>
+											</tr>
+											<tr>
+												<th>
+													Age
+												</th>
+												<td>
+													{{manager.age}}
+												</td>
+											</tr>
+											<tr>
+												<th>
+													Email
+												</th>
+												<td>
+													{{manager.email}}
+												</td>
+											</tr>
+											<tr>
+												<th>
+													Gender
+												</th>
+												<td>
+													{{manager.gender}}
+												</td>
+											</tr>
+											<tr>
+												<th>
+													Mobile
+												</th>
+												<td>
+													{{manager.mobile}}
+												</td>
+											</tr>
+											<tr>
+												<th>
+													Salary
+												</th>
+												<td>
+													{{manager.salary}}
+												</td>
+											</tr>
+											<tr>
+												<th>
+													Address Id
+												</th>
+												<td>
+													{{manager.address.id}}
+												</td>
+											</tr>
+											<tr>
+												<th>
+													Address Building
+												</th>
+												<td>
+													{{manager.address.building}}
+												</td>
+											</tr>
+											<tr>
+												<th>
+													Address Road
+												</th>
+												<td>
+													{{manager.address.road}}
+												</td>
+											</tr>
+											<tr>
+												<th>
+													Address Block
+												</th>
+												<td>
+													{{manager.address.block}}
+												</td>
+											</tr>
+											<tr>
+												<th>
+													Address City
+												</th>
+												<td>
+													{{manager.address.city}}
+												</td>
+											</tr>
+											<tr>
+												<th>
+													Degree
+												</th>
+												<td>
+													{{manager.degree}}
+												</td>
+											</tr>
+											<tr>
+												<th>
+													Allowance
+												</th>
+												<td>
+													{{manager.allowance}}
+												</td>
+											</tr>
+											<tr>
+												<th>
+													Active
+												</th>
+												<td>
+													{{manager.active}}
+												</td>
+											</tr>
+											<tr>
+												<th>
+													Creation Date
+												</th>
+												<td>
+													{{manager.creationDate}}
+												</td>
+											</tr>
+											<tr>
+												<th>
+													Creation User
+												</th>
+												<td>
+													{{manager.creationUser}}
+												</td>
+											</tr>
+											<tr>
+												<th>
+													Update Date
+												</th>
+												<td>
+													{{manager.updateDate}}
+												</td>
+											</tr>
+											<tr>
+												<th>
+													Update User
+												</th>
+												<td>
+													{{manager.updateUser}}
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="card mt-4">
+								<div class="card-header fw-bold">
+									Certificate List
+								</div>
+								<div class="table-responsive">
+									<table class="table table-striped">
+										<thead>
+											<tr>
+												<th>
+													#
+												</th>
+												<th>
+													Title
+												</th>
+												<th>
+													Year
+												</th>
+												<th>
+													Creation Date
+												</th>
+												<th>
+													Creation User
+												</th>
+												<th>
+													Update Date
+												</th>
+												<th>
+													Update User
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-repeat="certificate in manager.certificates">
+												<td>
+													{{$index + 1}}
+												</td>
+												<td>
+													{{certificate.title}}
+												</td>
+												<td>
+													{{certificate.year}}
+												</td>
+												<td>
+													{{certificate.creationDate}}
+												</td>
+												<td>
+													{{certificate.creationUser}}
+												</td>
+												<td>
+													{{certificate.updateDate}}
+												</td>
+												<td>
+													{{certificate.updateUser}}
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="activateModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">{{manager.active ? 'Deactivate' : 'Activate'}} Manager</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<h4>Are you sure to {{manager.active ? 'deactivate' : 'activate'}} Manager</h4>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-dark" data-bs-dismiss="modal" ng-if="!manager.active" ng-click="updateManagerActive()">Activate</button>
+							<button type="button" class="btn btn-dark" data-bs-dismiss="modal" ng-if="manager.active" ng-click="updateManagerActive()">Deactivate</button>
+							<button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			
+			var application = angular.module("application", []);
+
+			application.controller("controller", 
+
+				function($scope, $http, $timeout){
+				
+					$scope.alert = {class:"d-none", message:null};
+					
+					$scope.loading = true;
+					
+					$scope.managers = new Array();
+					
+					$scope.managerSearch = new Object();
+					$scope.managerSearch.rowCount = 5;
+					$scope.managerSearch.pageNo = 1;
+					$scope.managerSearch.pageCount = 0;
+					$scope.managerSearch.totalRows = 0;
+					
+					$scope.manager = new Object();
+					$scope.manager.address = new Object();
+					$scope.manager.certificates = new Array();
+					
+					$scope.searchManagers = function(alert){
+						
+						window.scrollTo(0, 0);
+						
+						$scope.loading = true;
+						
+						if(alert){
+							$scope.alert = {class:"alert-warning", message:"Please wait"};
+						}
+						
+						$http.post("./searchManagers", $scope.managerSearch).then(function(result){
+							
+							$scope.loading = false;
+							
+							if(alert){
+								$scope.alert = {class:"d-none", message:null};
+							}
+							
+							$scope.managers = result.data;
+							
+						}).catch(function(error){
+							
+							$scope.alert = {class:"alert-danger", message:error};
+						});
+						
+						//$http.post("./getManagerCount", $scope.managerSearch).then(function(result){
+							
+						//	$scope.managerSearch = result.data;
+							
+						//}).catch(function(error){
+							
+						//	$scope.alert = {class:"alert-danger", message:error};
+						//});
+					}
+					
+					$scope.searchManagers(true);
+					
+					$scope.first = function(){
+						$scope.managerSearch.pageNo = 1;
+						$scope.searchManagers(true);
+					}
+					
+					$scope.previous = function(){
+						$scope.managerSearch.pageNo--;
+						$scope.searchManagers(true);
+					}
+					
+					$scope.next = function(){
+						$scope.managerSearch.pageNo++;
+						$scope.searchManagers(true);
+					}
+					
+					$scope.last = function(){
+						$scope.managerSearch.pageNo = $scope.managerSearch.pageCount;
+						$scope.searchManagers(true);
+					}
+					
+					$scope.selectManager = function(manager){
+						
+						$http.post("./getManager", manager).then(function(result){
+							
+							$scope.manager = result.data;
+							
+						}).catch(function(error){
+							
+							$scope.alert = {class:"alert-danger", message:error};
+						});
+					}
+					
+					$scope.toAddManager = function(){
+						
+						$scope.alert = {class:"alert-info", message:"Please enter Manager Details"};
+						
+						$scope.manager = new Object();
+						$scope.manager.address = new Object();
+						$scope.manager.certificates = new Array();
+					}
+					
+					$scope.addManager = function(){
+						
+						window.scrollTo(0, 0);
+						
+						var result = isValidForm();
+						
+						if(result == null){
+							
+							$scope.manager.active = true;
+							
+							$http.post("./saveManager", $scope.manager).then(function(result){
+								
+								$("#managerModal").modal("hide");
+								
+								$scope.manager = result.data;
+								
+								$scope.alert = {class:"alert-success", message:"Manager with ID#" + $scope.manager.id + " has been added successfully"};
+								
+								$scope.searchManagers(false);
+								
+							}).catch(function(error){
+								
+								$scope.alert = {class:"alert-danger", message:error};
+							});
+							
+						}else{
+							
+							$scope.alert = {class:"alert-danger", message:result};
+						}
+					}
+					
+					$scope.toUpdateManager = function(manager){
+						
+						$http.post("./getManager", manager).then(function(result){
+							
+							$scope.manager = result.data;
+							
+							$scope.alert = {class:"alert-info", message:"Please update Manager Details"};
+							
+							if($scope.manager.certificates == null){
+								$scope.manager.certificates = new Array();
+							}
+							
+							$timeout(function(){
+								
+								isValidForm();
+							});
+							
+						}).catch(function(error){
+							
+							$scope.alert = {class:"alert-danger", message:error};
+						});
+					}
+					
+					$scope.updateManager = function(){
+						
+						window.scrollTo(0, 0);
+						
+						var result = isValidForm();
+						
+						if(result == null){
+							
+							$http.post("./saveManager", $scope.manager).then(function(result){
+								
+								$("#managerModal").modal("hide");
+								
+								$scope.manager = result.data;
+								
+								$scope.alert = {class:"alert-success", message:"Manager with ID#" + $scope.manager.id + " has been updated successfully"};
+								
+								$scope.searchManagers(false);
+								
+							}).catch(function(error){
+								
+								$scope.alert = {class:"alert-danger", message:error.data};
+							});
+							
+						}else{
+							
+							$scope.alert = {class:"alert-danger", message:result};
+						}
+					}
+					
+					$scope.updateManagerActive = function(){
+						
+						window.scrollTo(0, 0);
+						
+						$scope.manager.active = !$scope.manager.active;
+						
+						$http.post("./updateManagerActive", $scope.manager).then(function(result){
+							
+							$scope.manager = result.data;
+							
+							if($scope.manager.active){
+								
+								$scope.alert = {class:"alert-success", message:"Manager with ID#" + $scope.manager.id + " has been activated successfully"};
+								
+							}else{
+								
+								$scope.alert = {class:"alert-success", message:"Manager with ID#" + $scope.manager.id + " has been deactivated successfully"};
+							}
+							
+							$scope.searchManagers(false);
+							
+						}).catch(function(error){
+							
+							console.log(error);
+							
+							$scope.alert = {class:"alert-danger", message:error.data};
+						});
+					}
+					
+					$scope.addCertificate = function(index){
+						$scope.manager.certificates.splice(index, 0, new Object());
+					}
+					
+					$scope.deleteCertificate = function(index){
+						$scope.manager.certificates.splice(index, 1);
+					}
+				}
+			);
+		</script>
+		<script src="common.js"></script>
+	</body>
+</html>
