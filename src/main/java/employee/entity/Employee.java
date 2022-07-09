@@ -48,7 +48,7 @@ public class Employee implements Serializable {
 	@Column(name="emp_salary")
 	private Double salary;
 	@JoinColumn(name="emp_address_id")
-	@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Address address;
 	@Column(name="emp_active")
 	private Boolean active;
@@ -63,7 +63,7 @@ public class Employee implements Serializable {
 	@Column(name="emp_update_user")
 	private String updateUser;
 	
-	@OneToMany(mappedBy="employee", fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@OneToMany(mappedBy="employee", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Certificate> certificates;
 	
 	@Transient
